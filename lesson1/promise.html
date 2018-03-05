@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise</title>
+</head>
+<body>
+<script>
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject('404')
+        }, 2000)
+    });
+
+    promise.then(result => {
+        console.log('Всё впорядке resolve', result);
+    },
+        error => {
+        console.log('Что-то не так error', error)
+    });
+</script>
+</body>
+</html>

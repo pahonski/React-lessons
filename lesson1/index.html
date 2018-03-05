@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson1</title>
+</head>
+<body>
+<script>
+
+
+    //const
+    const model = 'Audi';
+    //console.log(model);
+    //model = '0';
+    //console.log(model);
+
+    const tel = {
+        model: 'iphone'
+    };
+
+    //tel = 'df';//Нельзя
+    delete(tel.model);
+    //console.log(tel);
+
+    //Деструктуриздация
+    //Массивы
+
+    let[userName, userAge] = ['igor', 12];
+    let[userName2, userAge2] = ['igor'];
+    let[userName3, userAge3, ...emails] = ['igor', 12, '101@mail.ru', '102@mail.ru'];
+    console.log(userName,userAge);
+    console.log(userName2,userAge2);
+    console.log(userName3,userAge3,emails);
+
+    //Объекты
+    let options = {
+        width: 200,
+        height: 300,
+        style: {
+            background: 'green'
+        },
+        items: [
+            1, 2, 3
+        ]
+    };
+    console.log(options);
+
+    let{
+        width: w = 'Не задано', height:h,
+        items: [item1, item2, item3],
+        style: {background}
+    } = options;
+    console.log(w, h, item1, item2, item3, background);
+
+
+    //Стрелочные функции
+    let increment = a => ++a;
+    let increment2 = () => 8+2;
+    let plus = (x, y) => x + y;
+
+    console.log(increment(2));
+    console.log(increment2());
+    console.log(plus(2,3));
+</script>
+</body>
+</html>

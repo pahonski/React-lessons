@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //let
+    //Сначала объявить переменную, апотом использовать
+    //Видимость внутри блока и не доступна за пределами
+    //В цикле на каждой итерации создается своя переменная let
+
+    let user = 'Petya';
+    console.log(user);
+
+    {
+        let name = 1;
+        var name2 = 2;
+    }
+
+    console.log(name);
+    console.log(name2);
+
+    for (let i = 0; i < 4; i++) {
+        console.log(i);
+    }
+
+    console.log(i);
+
+    function arrayFunc() {
+        let func = [];
+
+        for(let i = 0; i < 10; i++) {
+            func.push(function () {
+                console.log(i)
+            });
+        }
+        console.log(func);
+        return func;
+    }
+
+    let myArray = arrayFunc();
+
+    myArray[0]();//10 если var
+    myArray[4]();//10 если var
+    myArray[5]();//10 если var
+
+</script>
+</body>
+</html>

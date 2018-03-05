@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class</title>
+</head>
+<body>
+<script>
+    class PersonBase
+    {
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        show(){
+            console.log(this.name, this.age);
+        }
+    }
+
+
+    class Person extends PersonBase
+    {
+        constructor(name, age, email, tel){
+            super(name, age);
+            this. email = email;
+            this.tel = tel;
+        }
+
+        show(){
+            super.show();
+            console.log(this.email, this.tel);
+        }
+    }
+
+    let person1 = new Person('pavel', 12, '2@mail.ru', 213123123);
+
+    console.log(person1);
+    person1.show();
+</script>
+</body>
+</html>
