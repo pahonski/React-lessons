@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2</title>
+</head>
+<body>
+<script>
+    function calculateArea(a, b=null, c=null, hA=null, hB=null, hC=null) {
+        let result = {};
+        result.input = [];
+        if (b === null) {
+            result.area = Math.pow(a, 2);
+            result.figure = 'square';
+            result.input.push(a);
+        }
+
+        if (b !== null && c === null && hA === null) {
+            result.area = a * b;
+            result.figure = 'rectangle';
+            result.input.push(a, b);
+        }
+
+        if (b !== null && hA !== null && hB !== null) {
+            result.area = a * hA || a * hB;
+            result.figure = 'parallelogram';
+            result.input.push(a, b, hA, hB);
+        }
+
+        return result;
+    }
+
+    console.log(calculateArea(25, 15, null,15, 25));
+
+
+</script>
+</body>
+</html>

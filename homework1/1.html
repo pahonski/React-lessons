@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+</head>
+<body>
+<script>
+    function loop(times = 0, callback = null) {
+        if (callback !== null) {
+            for (let i = 0; i < times; i++) {
+                callback();
+            }
+        } else {
+            return console.log('Нету функции');
+        }
+
+    }
+
+    let func = () => console.log('Функцию зажевало на ок');
+
+    loop(4);
+</script>
+</body>
+</html>
