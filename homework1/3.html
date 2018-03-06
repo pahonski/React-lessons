@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3</title>
+</head>
+<body>
+<script>
+
+    let employees = [];
+
+    class Human
+    {
+        constructor(name, age){
+            this.name = name.toString();
+            this.age = +age;
+
+        }
+
+        displayInfo() {
+            return 'Имя: ' + this.age + ' Возраст: ' + this.age;
+        }
+    }
+
+    class Employee extends Human
+    {
+        constructor(name, age, salary, department){
+            super(name, age);
+            this.salary = salary;
+            this.department = department;
+            employees.push(this);
+        }
+
+        displayInfo() {
+            return super.displayInfo() + 'Департамент: ' + this.department + ' Зарплата: ' + this.salary;
+        }
+    }
+
+    class Developer extends Employee
+    {
+        constructor(name, age, salary, department){
+        super(name, age, salary, department);
+        this.devManager = '';
+        }
+
+        setNewManager(manager) {
+            if (manager instanceof Manager) {
+                this.manager = manager;
+            }
+        }
+
+        deleteManager(manager) {
+            this.manager = null;
+        }
+    }
+
+    class Manager extends Employee
+    {
+        constructor(name, age, salary, department){
+            super (name, age, salary, department);
+            this.developerList = [];
+        }
+
+        addDeveloper(developer) {
+            if (!developer.devManager) {
+                this.developerList.push(developer);
+                developer.setNewManager(this);
+            }
+        }
+
+        deleteDeveloper(developer) {
+            let devIndex = this.developerList.indexOf(developer);
+            if (devIndex >= 0) {
+                developer.deleteManager();
+                this.developerList.splice(devIndex, 1);
+
+
+            }
+        }
+    }
+
+    let pashaDeveloper = new Developer('Pasha', 12, 150, 'JAVA');
+    console.log(pashaDeveloper);
+    let mashaManager = new Manager('Masha', 15, 180, 'HR');
+    console.log(mashaManager);
+
+
+
+</script>
+</body>
+</html>
