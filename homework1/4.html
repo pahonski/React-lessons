@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4</title>
+</head>
+<body>
+<script>
+
+
+    let result = function createPromisesArray() {
+        let promises = [];
+        for (let i = 1; i <= 10; i++) {
+            let promise = new Promise((resolve, reject) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://jsonplaceholder.typicode.com/users/' + i);
+                xhr.send();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState !== 4) {return}
+
+                    if (xhr.status === 200) {
+                        resolve(xhr.responseText);
+                    } else {
+                        reject(xhr.status);
+                    }
+                }
+            });
+
+            promise.then
+            (
+                result  => {
+                promises.push(result);
+            },
+                error => {
+                console.log('error', error);
+            });
+        }
+        return promises;
+    };
+
+    console.log(result());
+</script>
+</body>
+</html>
